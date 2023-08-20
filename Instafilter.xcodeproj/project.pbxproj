@@ -11,6 +11,7 @@
 		8B728A322A90ED5A000763A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B728A312A90ED5A000763A5 /* ContentView.swift */; };
 		8B728A342A90ED5C000763A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B728A332A90ED5C000763A5 /* Assets.xcassets */; };
 		8B728A372A90ED5C000763A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B728A362A90ED5C000763A5 /* Preview Assets.xcassets */; };
+		8B728A3E2A9262CB000763A5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B728A3D2A9262CB000763A5 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8B728A312A90ED5A000763A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B728A332A90ED5C000763A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B728A362A90ED5C000763A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B728A3D2A9262CB000763A5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				8B728A2F2A90ED5A000763A5 /* InstafilterApp.swift */,
 				8B728A312A90ED5A000763A5 /* ContentView.swift */,
+				8B728A3D2A9262CB000763A5 /* ImagePicker.swift */,
 				8B728A332A90ED5C000763A5 /* Assets.xcassets */,
 				8B728A352A90ED5C000763A5 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B728A3E2A9262CB000763A5 /* ImagePicker.swift in Sources */,
 				8B728A322A90ED5A000763A5 /* ContentView.swift in Sources */,
 				8B728A302A90ED5A000763A5 /* InstafilterApp.swift in Sources */,
 			);
