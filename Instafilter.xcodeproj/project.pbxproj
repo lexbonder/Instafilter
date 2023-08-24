@@ -13,6 +13,7 @@
 		8B728A342A90ED5C000763A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B728A332A90ED5C000763A5 /* Assets.xcassets */; };
 		8B728A372A90ED5C000763A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B728A362A90ED5C000763A5 /* Preview Assets.xcassets */; };
 		8B728A3E2A9262CB000763A5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B728A3D2A9262CB000763A5 /* ImagePicker.swift */; };
+		8B88FDFF2A978C7A00794B4D /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88FDFE2A978C7A00794B4D /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		8B728A332A90ED5C000763A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B728A362A90ED5C000763A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B728A3D2A9262CB000763A5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8B88FDFE2A978C7A00794B4D /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				8B728A2F2A90ED5A000763A5 /* InstafilterApp.swift */,
 				8B728A312A90ED5A000763A5 /* ContentView.swift */,
+				8B88FDFE2A978C7A00794B4D /* SliderView.swift */,
 				8B2B6D0E2A940C7200D95018 /* ImageSaver.swift */,
 				8B728A3D2A9262CB000763A5 /* ImagePicker.swift */,
 				8B728A332A90ED5C000763A5 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				8B728A322A90ED5A000763A5 /* ContentView.swift in Sources */,
 				8B728A302A90ED5A000763A5 /* InstafilterApp.swift in Sources */,
 				8B2B6D0F2A940C7200D95018 /* ImageSaver.swift in Sources */,
+				8B88FDFF2A978C7A00794B4D /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

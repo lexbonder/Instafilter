@@ -11,14 +11,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image: Image?
+    
     @State private var filterIntensity = 0.5
+    @State private var intensityEnabled = false
 
+    @State private var filterRadius = 0.5
+    @State private var radiusEnabled = false
+
+    @State private var filterScale = 0.5
+    @State private var scaleEnabled = false
+    
+    @State private var filterAngle = 0.5
+    @State private var angleEnabled = false
+    
+    @State private var filterWidth = 0.5
+    @State private var widthEnabled = false
+    
     @State private var showingImagePicker = false
     @State private var showingFilterSheet = false
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
     
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+
     let context = CIContext()
     
     var body: some View {
@@ -40,17 +55,46 @@ struct ContentView: View {
                     showingImagePicker = true
                 }
                 
-                HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity) { _ in applyProcessing() }
-                }
-                .padding(.vertical)
+                SliderView(
+                    label: "Intensity",
+                    filterAmount: $filterIntensity,
+                    filterEnabled: intensityEnabled
+                )
+                    .onChange(of: filterIntensity) { _ in applyProcessing() }
+                
+                SliderView(
+                    label: "Radius",
+                    filterAmount: $filterRadius,
+                    filterEnabled: radiusEnabled
+                )
+                    .onChange(of: filterRadius) { _ in applyProcessing() }
+                
+                SliderView(
+                    label: "Scale",
+                    filterAmount: $filterScale,
+                    filterEnabled: scaleEnabled
+                )
+                    .onChange(of: filterScale) { _ in applyProcessing() }
+                
+                SliderView(
+                    label: "Angle",
+                    filterAmount: $filterAngle,
+                    filterEnabled: angleEnabled
+                )
+                    .onChange(of: filterAngle) { _ in applyProcessing() }
+                
+                SliderView(
+                    label: "Width",
+                    filterAmount: $filterWidth,
+                    filterEnabled: widthEnabled
+                )
+                    .onChange(of: filterWidth) { _ in applyProcessing() }
                 
                 HStack {
                     Button("Change Filter") { showingFilterSheet = true }
                     Spacer()
                     Button("Save", action: save)
+                        .disabled(image == nil)
                 }
             }
             .padding([.horizontal, .bottom])
@@ -67,6 +111,7 @@ struct ContentView: View {
                 Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
                 Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
                 Button("Vignette") { setFilter(CIFilter.vignette()) }
+                Button("Dot Screen") { setFilter(CIFilter.dotScreen()) }
             }
         }
     }
@@ -82,9 +127,45 @@ struct ContentView: View {
     func applyProcessing() {
         let inputKeys = currentFilter.inputKeys
         
-        if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
-        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
-        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
+        if inputKeys.contains(kCIInputIntensityKey) {
+            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
+            intensityEnabled = true
+        } else {
+            intensityEnabled = false
+            filterIntensity = 0.5
+        }
+
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey)
+            radiusEnabled = true
+        } else {
+            radiusEnabled = false
+            filterRadius = 0.5
+        }
+
+        if inputKeys.contains(kCIInputScaleKey) {
+            currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
+            scaleEnabled = true
+        } else {
+            scaleEnabled = false
+            filterScale = 0.5
+        }
+        
+        if inputKeys.contains(kCIInputAngleKey) {
+            currentFilter.setValue(filterAngle * 360, forKey: kCIInputAngleKey)
+            angleEnabled = true
+        } else {
+            angleEnabled = false
+            filterAngle = 0.5
+        }
+        
+        if inputKeys.contains(kCIInputWidthKey) {
+            currentFilter.setValue(filterWidth * 10, forKey: kCIInputWidthKey)
+            widthEnabled = true
+        } else {
+            widthEnabled = false
+            filterWidth = 0.5
+        }
         
         guard let outputImage = currentFilter.outputImage else { return }
         
